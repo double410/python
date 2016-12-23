@@ -1,0 +1,42 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Homework{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css">
+{% endblock %}
+
+{% block content %}
+    <div class="alert alert-warning alert-dismissible fade in" role="alert" {{message.is_hidden}}>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong>警告：</strong>{{message.msg}}
+    </div>
+    
+    <div class="card card-inverse" style="background-color: #333; border-color: #333;">
+      <div class="card-header card-info">
+         <form class="form-inline" action="/index" method="post" class="add-entry">
+             <fieldset class="form-group">
+                 <label for="dateselect">请选择日期：</label>
+                 <input data-provide="datepicker" name="selected_date" value={{selected_date}}>
+                 <button type="submit" class="btn btn-secondary btn-sm">查询</button>
+             </fieldset>
+        </form>
+      </div>
+      <div class="card-block">
+        <p class="card-title">{{homework.title}}</p>
+          {% for class in homework.classes %}
+          <h4 class="card-title">{{class.subject}}</h3>
+          <p class="card-text">
+          {% for item in class.content.split("\n") %}
+              {{item}}<br>
+          {% endfor %}
+          </p>
+          {% endfor %}        
+      </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="http://cdn.bootcss.com/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+{% endblock %}
