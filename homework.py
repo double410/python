@@ -34,7 +34,7 @@ class WebHomework:
 
         return homework
  
-homework = WebHomework("http://www.fushanedu.cn/jxq/jxq.aspx", "20162424", "xjamma(1314)")
+homework = WebHomework("http://www.fushanedu.cn/jxq/jxq.aspx", "xxxxxx", "xxxxxxx")
 
 out = open("/home/Fred/han/index.html", "w")
 
