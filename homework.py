@@ -51,16 +51,3 @@ for item in homework.get_homework():
 out.write("</div></body></html>")
 
 out.close()
-
-#print(homework.get_homework())
-
-'''
-conf = WechatConf(
-    tocken="my_tocken",
-    appid="wxedaa5a219614f110",
-    appsecret="285fb6b10bd35b935ccac8024a37038a",
-    encrypt_mode="safe"
-)
-
-wechat = WechatBasic(conf=conf)
-'''
